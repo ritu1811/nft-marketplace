@@ -3,6 +3,7 @@ import { AiFillAlert, AiFillHeart, AiOutlineClockCircle } from "react-icons/ai";
 import { FaEthereum } from "react-icons/fa";
 import BidModal from "../../components/Modal/BidModal";
 
+
 const Card = ({item}) => {
     const {img, title, price, likes, sale } = item;
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,6 +21,26 @@ const Card = ({item}) => {
             fullName: fullName,
             email: email,
             amount: bidAmount
+        }
+
+        try {
+            fetch('http://localhost:5000/checkout',{
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data),
+            }).then((response) => {
+                if(!response.ok){
+                    throw new Error("Network response not ok")
+                }
+                return response.json()
+            }).then((data) => {
+                console.log(data)
+            })
+        } catch (error) {
+            console.error(error);
+            throw error;
         }
         console.log(data);
         toggleModal();

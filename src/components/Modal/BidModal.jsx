@@ -3,11 +3,10 @@ import Modal from './Modal';
 
 const BidModal = ({ isOpen, onClose, onBidSubmit, fullName, setFullName, email, setEmail, bidAmount, setBidAmount }) => 
   {
-
     const handleBidSubmit = (e) => {
-      e.preventDefault()
-      onBidSubmit()
-    }
+      e.preventDefault();
+      onBidSubmit();
+    };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -44,7 +43,7 @@ const BidModal = ({ isOpen, onClose, onBidSubmit, fullName, setFullName, email, 
         </form>
       </div>
     </Modal>
-  )
+  );
 }
 
 export default BidModal;
