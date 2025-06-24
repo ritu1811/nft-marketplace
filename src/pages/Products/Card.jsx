@@ -24,7 +24,7 @@ const Card = ({item}) => {
         }
 
         try {
-            fetch('http://localhost:5000/checkout',{
+            fetch('https://nft-marketplace-backend-vmcp.onrender.com/checkout',{
             method: "POST",
             headers: {
             "Content-Type": "application/json"
